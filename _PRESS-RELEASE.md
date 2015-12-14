@@ -18,27 +18,41 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Snake game
+
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
 
+  Product is for anyone and the it's goal is to entertain users. 
+
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+
+  Users can control a snake on the screen and eats apples.
 
 ## Problem ##
   > Describe the problem your product solves.
 
+  Users are looking for something to entertain them.
+
 ## Solution ##
   > Describe how your product elegantly solves the problem.
 
+  Provide a fun game to entertain them.
+
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  Enjoy our game!
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  Go to the page and start playing immediately.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  This is fun.
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  Check out our game at this website.
