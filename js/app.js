@@ -30,9 +30,12 @@ $(document).ready(function() {
 	}
 
 	var generatePellet = function() {
-		var pelletHTML = "<div class='pellet'>"
-
+		var pelletHTML = "<div class='pellet'></div>"
 		$body.prepend(pelletHTML);
+		$('.pellet').css({
+			top: Math.floor(Math.random() * 5) * snakeSize,
+			left: Math.floor(Math.random() * 5) * snakeSize
+		})
 	};
 	generatePellet();
 	setInterval(moveSnake, gameSpeed);
