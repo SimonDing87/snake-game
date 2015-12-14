@@ -3,10 +3,11 @@ $(document).ready(function() {
     console.log('hey');
   });
 
-	var $snake = $("#snake");
+	var $snake = $('#snake');
+	var $body = $('body');
 	var gameSpeed = 500;
 	var direction = 39;
-	var snakeSize = $snake.css('width');
+	var snakeSize = parseInt($snake.css('width'));
 
 
 	$(document).keydown(function(e){
@@ -28,6 +29,11 @@ $(document).ready(function() {
 		}
 	}
 
+	var generatePellet = function() {
+		$body.prepend(pelletHTML);
+	};
+	generatePellet();
 	setInterval(moveSnake, gameSpeed);
+	// setInterval(generatePellet, gameSpeed);
 });
 
