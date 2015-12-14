@@ -30,6 +30,8 @@ $(document).ready(function() {
 	}
 
 	var generatePellet = function() {
+		var pelletHTML = "<div class='pellet'>"
+
 		$body.prepend(pelletHTML);
 	};
 	generatePellet();

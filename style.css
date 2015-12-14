@@ -10,7 +10,7 @@
 .pellet {
 	width: 50px;
 	height: 50px;
-	display: none;
+	display: intial;
 	background: red;
 	position: absolute;
 	top: 0;
