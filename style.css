@@ -1,22 +1,31 @@
 #snake {
-	width: 50px;
-	height: 50px;
+	width: 20px;
+	height: 20px;
 	background: black;
 	position: absolute;
-	top: 50px;
-	left: 50px;
+	top: 20px;
+	left: 20px;
+}
+
+#board {
+	width: 400px;
+	height: 400px;
+	background: green;
+	position: absolute;
+
 }
 
 .pellet {
-	width: 50px;
-	height: 50px;
+	width: 20px;
+	height: 20px;
 	background: red;
 	position: absolute;
+	border-radius: 100%;
 }
 
 .tail {
-	width: 50px;
-	height: 50px;
+	width: 20px;
+	height: 20px;
 	background: gray;
 	position: absolute;
 }

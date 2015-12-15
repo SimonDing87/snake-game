@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
 	var $snake = $('#snake');
-	var $body = $('body');
+	var $board = $('#board');
 	var $pellet = $('.pellet');	
-	var gameSpeed = 300;
+	var gameSpeed = 100;
 	var snakeSize = parseInt($snake.css('width'));
 	var direction = 39;
 	var score = 0;
@@ -29,34 +29,17 @@ $(document).ready(function() {
 
 	var generatePellet = function() {
 		var pelletHTML = "<div class='pellet'></div>"
-		$body.prepend(pelletHTML);
+		$board.prepend(pelletHTML);
 		$('.pellet').css({
 			top: Math.floor(Math.random() * 8) * snakeSize,
 			left: Math.floor(Math.random() * 8) * snakeSize
 		})
 	};
 
-	var checkCollision = function(div1, div2) {
-		if (div1.css('top') === div2.css('top') && div1.css('left') === div2.css('left')) {
-			console.log('collided!');
-			return true;
-		}
-		console.log('no collision');
-		return false;
-	}
-	generatePellet();
-
-	// var addTail = function() {
-	// 	$body.prepend('<div class="tail"></div>');
-	// 	$('.tail').css({
-	// 		top: $snake.css('top'),
-	// 		left: $snake.css('left')
-	// 	});
-	// }
 
 	var tailCount = 0;
 	var addTail = function() {
-		$body.prepend('<div class="tail ' + tailCount + '"></div>');
+		$board.prepend('<div class="tail ' + tailCount + '"></div>');
 		$('.' + tailCount).css({
 			top: $snake.css('top'),
 			left: $snake.css('left')
@@ -80,9 +63,7 @@ $(document).ready(function() {
 		}
 	}
 
-	var updateGame = function() {
-		updateSnake();
-		moveSnake();
+	var ifPelletEaten = function() {
 		if (checkCollision($snake, $('.pellet'))) {
 			score++;
 			addTail();
@@ -90,6 +71,32 @@ $(document).ready(function() {
 			generatePellet();
 		}
 	}
+
+	var checkCollision = function(div1, div2) {
+		if (div1.css('top') === div2.css('top') && div1.css('left') === div2.css('left')) {
+			return true;
+		}
+		return false;
+	}
+
+	var checkWithinBoard = function() {
+		if (parseInt($snake.css('top')) < 0
+			|| parseInt($snake.css('top')) > parseInt($board.css('height'))
+			|| parseInt($snake.css('left')) < 0
+			|| parseInt($snake.css('left')) > parseInt($board.css('width'))
+		) {
+			console.log('you dead');
+		}
+	}
+
+	var updateGame = function() {
+		updateSnake();
+		moveSnake();
+		ifPelletEaten();
+		checkWithinBoard();
+	}
+
+	generatePellet();
 	setInterval(updateGame, gameSpeed);
 });
 
