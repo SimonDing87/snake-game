@@ -3,7 +3,7 @@ $(document).ready(function() {
 	var $snake = $('#snake');
 	var $body = $('body');
 	var $pellet = $('.pellet');	
-	var gameSpeed = 500;
+	var gameSpeed = 300;
 	var snakeSize = parseInt($snake.css('width'));
 	var direction = 39;
 	var score = 0;
@@ -46,19 +46,38 @@ $(document).ready(function() {
 	}
 	generatePellet();
 
+	// var addTail = function() {
+	// 	$body.prepend('<div class="tail"></div>');
+	// 	$('.tail').css({
+	// 		top: $snake.css('top'),
+	// 		left: $snake.css('left')
+	// 	});
+	// }
+
+	var tailCount = 0;
 	var addTail = function() {
-		$body.prepend('<div class="tail"></div>');
+		$body.prepend('<div class="tail ' + tailCount + '"></div>');
 		$('.tail').css({
 			top: $snake.css('top'),
 			left: $snake.css('left')
 		});
+		tailCount++;
 	}
 	
 	var updateSnake = function() {
-		$('.tail').css({
-			top: $snake.css('top'),
-			left: $snake.css('left')
-		});
+		for (var i = tailCount; i >= 0; i--) {
+			if (i === 0) {
+				$('.'+i).css({
+					top: $snake.css('top'),
+					left: $snake.css('left')
+				});
+			} else {
+				$('.'+i).css({
+					top: $('.'+(i-1)).css('top'),
+					left: $('.'+(i-1)).css('left')
+				})
+			}
+		}
 	}
 
 	var updateGame = function() {
