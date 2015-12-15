@@ -57,7 +57,7 @@ $(document).ready(function() {
 	var tailCount = 0;
 	var addTail = function() {
 		$body.prepend('<div class="tail ' + tailCount + '"></div>');
-		$('.tail').css({
+		$('.' + tailCount).css({
 			top: $snake.css('top'),
 			left: $snake.css('left')
 		});
