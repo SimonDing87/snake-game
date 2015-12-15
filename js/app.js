@@ -47,7 +47,14 @@ $(document).ready(function() {
 	generatePellet();
 
 	var addTail = function() {
-		$body.append('<div class="tail"></div>');
+		$body.prepend('<div class="tail"></div>');
+		$('.tail').css({
+			top: $snake.css('top'),
+			left: $snake.css('left')
+		});
+	}
+	
+	var updateSnake = function() {
 		$('.tail').css({
 			top: $snake.css('top'),
 			left: $snake.css('left')
@@ -55,17 +62,15 @@ $(document).ready(function() {
 	}
 
 	var updateGame = function() {
+		updateSnake();
 		moveSnake();
 		if (checkCollision($snake, $('.pellet'))) {
 			score++;
+			addTail();
 			$('.pellet').remove();
 			generatePellet();
 		}
 	}
-	setInterval(function(){
-		addTail();
-		addTail();
-		updateGame();
-	}, gameSpeed);
+	setInterval(updateGame, gameSpeed);
 });
 
