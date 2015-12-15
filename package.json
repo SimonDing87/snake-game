@@ -1,10 +1,11 @@
 {
   "name": "snake",
   "version": "1.0.0",
-  "description": "simple snake app",
+  "description": "simple snake game",
   "main": "server.js",
   "dependencies": {
     "express": "^4.13.3",
+    "nodemon": "^1.8.1"
   },
   "devDependencies": {},
   "scripts": {
@@ -15,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/SimonDing87/MKS-solo.git"
   },
-  "author": "Simon Ding",
+  "author": "simon ding",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SimonDing87/MKS-solo/issues"
