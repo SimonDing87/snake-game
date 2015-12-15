@@ -17,6 +17,7 @@ $(document).ready(function() {
 	})
 
 	var initGame = function() {
+		$('.tail').remove();
 		generatePellet();
 		direction = 39;
 		score = 0;
