@@ -1,7 +1,4 @@
 $(document).ready(function() {
-  $('#snake').on('click', function() {
-    console.log('hey');
-  });
 
 	var $snake = $('#snake');
 	var $body = $('body');
@@ -9,6 +6,7 @@ $(document).ready(function() {
 	var gameSpeed = 500;
 	var snakeSize = parseInt($snake.css('width'));
 	var direction = 39;
+	var score = 0;
 
 	var moveSnake = function() {
 		$(document).keydown(function(e){
@@ -47,9 +45,27 @@ $(document).ready(function() {
 		return false;
 	}
 	generatePellet();
-	setInterval(function(){
+
+	var addTail = function() {
+		$body.append('<div class="tail"></div>');
+		$('.tail').css({
+			top: $snake.css('top'),
+			left: $snake.css('left')
+		});
+	}
+
+	var updateGame = function() {
 		moveSnake();
-		checkCollision($snake, $('.pellet'));
+		if (checkCollision($snake, $('.pellet'))) {
+			score++;
+			$('.pellet').remove();
+			generatePellet();
+		}
+	}
+	setInterval(function(){
+		addTail();
+		addTail();
+		updateGame();
 	}, gameSpeed);
 });
 

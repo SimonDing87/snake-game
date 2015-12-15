@@ -3,16 +3,20 @@
 	height: 50px;
 	background: black;
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 50px;
+	left: 50px;
 }
 
 .pellet {
 	width: 50px;
 	height: 50px;
-	display: intial;
 	background: red;
 	position: absolute;
-	top: 0;
-	left: 0;
+}
+
+.tail {
+	width: 50px;
+	height: 50px;
+	background: gray;
+	position: absolute;
 }
