@@ -70,6 +70,13 @@ $(document).ready(function() {
 		}
 	}
 
+
+	var checkCollision = function(div1, div2) {
+		if (div1.css('top') === div2.css('top') && div1.css('left') === div2.css('left')) {
+			return true;
+		}
+		return false;
+	}
 	var ifPelletEaten = function() {
 		if (checkCollision($snake, $('.pellet'))) {
 			score++;
@@ -79,18 +86,15 @@ $(document).ready(function() {
 		}
 	}
 
-	var checkCollision = function(div1, div2) {
-		if (div1.css('top') === div2.css('top') && div1.css('left') === div2.css('left')) {
-			return true;
-		}
-		return false;
+	var checkTailCollision = function() {
+		// if (checkCollision($snake, ))
 	}
 
 	var checkWithinBoard = function() {
 		if (parseInt($snake.css('top')) < 0
 			|| parseInt($snake.css('top')) > parseInt($board.css('height'))
 			|| parseInt($snake.css('left')) < 0
-			|| parseInt($snake.css('left')) > parseInt($board.css('width'))
+			|| parseInt($snake.css('left')) > parseInt($board.css('width')) - snakeSize
 		) {
 			gameActive = false;
 		}
@@ -101,6 +105,7 @@ $(document).ready(function() {
 			updateSnake();
 			moveSnake();
 			ifPelletEaten();
+			checkTailCollision();
 			checkWithinBoard();
 		}	else {
 			$board.append('<div>YOU DEAD GAME OVER</div>')
