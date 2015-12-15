@@ -7,8 +7,12 @@ $(document).ready(function() {
 	var snakeSize = parseInt($snake.css('width'));
 	var direction = 39;
 	var score = 0;
+	var gameActive = true;
+	var tailCount = 0;
 
 	var moveSnake = function() {
+		//only allow perpendicular directions, need to fix bug if u spam keys u can still turn into your tail
+
 		$(document).keydown(function(e){
 			if (direction === 37 || direction == 39) {
 				if (e.keyCode === 38 || e.keyCode === 40) {
@@ -44,9 +48,8 @@ $(document).ready(function() {
 	};
 
 
-	var tailCount = 0;
 	var addTail = function() {
-		$board.prepend('<div class="tail ' + tailCount + '"></div>');
+		$('<div class="tail ' + tailCount + '"></div>').insertBefore($snake);
 		$('.' + tailCount).css({
 			top: $snake.css('top'),
 			left: $snake.css('left')
@@ -103,7 +106,6 @@ $(document).ready(function() {
 			gameActive = false;
 		}
 	}
-	var gameActive = true;
 	var updateGame = function() {
 		if (gameActive){
 			updateSnake();
@@ -113,7 +115,7 @@ $(document).ready(function() {
 			checkWithinBoard();
 
 		}	else {
-			$board.append('<div>YOU DEAD GAME OVER</div>')
+			$('#gameover').animate({opacity: 1}, 700)
 		}
 	}
 
