@@ -1,1 +1,25 @@
-
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "simple snake app",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "nodemon": "^1.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimonDing87/MKS-solo.git"
+  },
+  "author": "Simon Ding",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SimonDing87/MKS-solo/issues"
+  },
+  "homepage": "https://github.com/SimonDing87/MKS-solo#readme"
+}
