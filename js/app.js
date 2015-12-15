@@ -26,6 +26,7 @@ $(document).ready(function() {
 		$snake.css('top', snakeSize);
 		$snake.css('left', snakeSize);
 		$('#gameover').css('opacity', 0);
+		start = setInterval(updateGame, gameSpeed);
 	}
 	var moveSnake = function() {
 		//only allow perpendicular directions, need to fix bug if u spam keys u can still turn into your tail
@@ -116,7 +117,7 @@ $(document).ready(function() {
 
 	var checkWithinBoard = function() {
 		if (parseInt($snake.css('top')) < 0
-			|| parseInt($snake.css('top')) > parseInt($board.css('height'))
+			|| parseInt($snake.css('top')) > parseInt($board.css('height')) - snakeSize
 			|| parseInt($snake.css('left')) < 0
 			|| parseInt($snake.css('left')) > parseInt($board.css('width')) - snakeSize
 		) {
@@ -132,11 +133,12 @@ $(document).ready(function() {
 			checkWithinBoard();
 
 		}	else {
+			clearInterval(start);
 			$('#gameover').animate({opacity: 1}, 700)
 		}
 	}
 
 	initGame();
-	setInterval(updateGame, gameSpeed);
+	// var start = setInterval(updateGame, gameSpeed);
 });
 
