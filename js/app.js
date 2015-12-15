@@ -38,8 +38,8 @@ $(document).ready(function() {
 		var pelletHTML = "<div class='pellet'></div>"
 		$board.prepend(pelletHTML);
 		$('.pellet').css({
-			top: Math.floor(Math.random() * 8) * snakeSize,
-			left: Math.floor(Math.random() * 8) * snakeSize
+			top: Math.floor(Math.random() * parseInt($board.css('height'))/snakeSize) * snakeSize,
+			left: Math.floor(Math.random() * parseInt($board.css('width'))/snakeSize) * snakeSize
 		})
 	};
 
