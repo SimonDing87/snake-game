@@ -87,7 +87,11 @@ $(document).ready(function() {
 	}
 
 	var checkTailCollision = function() {
-		// if (checkCollision($snake, ))
+		for (var i = 0; i < tailCount-1; i++) {
+			if (checkCollision($snake, $('.'+ i))) {
+				gameActive = false;
+			}
+		}
 	}
 
 	var checkWithinBoard = function() {
@@ -107,6 +111,7 @@ $(document).ready(function() {
 			ifPelletEaten();
 			checkTailCollision();
 			checkWithinBoard();
+
 		}	else {
 			$board.append('<div>YOU DEAD GAME OVER</div>')
 		}
