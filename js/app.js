@@ -10,19 +10,26 @@ $(document).ready(function() {
 
 	var moveSnake = function() {
 		$(document).keydown(function(e){
-			if (e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40)
-			direction = e.keyCode;
-		})
-		if (direction === 37) {
+			if (direction === 37 || direction == 39) {
+				if (e.keyCode === 38 || e.keyCode === 40) {
+					direction = e.keyCode;
+				}
+			} else if (direction === 38 || direction === 40) {
+				if (e.keyCode === 37 || e.keyCode === 39) {
+					direction = e.keyCode;
+				}
+			} 
+		});
+		if (direction === 37) { // move left
 			$snake.css('left', '-=' + snakeSize);
 		}
-		if (direction === 38) {
+		if (direction === 38) { // move up
 			$snake.css('top', '-=' + snakeSize);
 		}
-		if (direction === 39) {
+		if (direction === 39) { // move right
 			$snake.css('left', '+=' + snakeSize);
 		}
-		if (direction === 40) {
+		if (direction === 40) { // move down
 			$snake.css('top', '+=' + snakeSize);
 		}
 	}
@@ -85,7 +92,6 @@ $(document).ready(function() {
 			|| parseInt($snake.css('left')) < 0
 			|| parseInt($snake.css('left')) > parseInt($board.css('width'))
 		) {
-			console.log('you dead');
 			gameActive = false;
 		}
 	}
@@ -97,7 +103,7 @@ $(document).ready(function() {
 			ifPelletEaten();
 			checkWithinBoard();
 		}	else {
-			$board.append('<div>GAME OVER</div>')
+			$board.append('<div>YOU DEAD GAME OVER</div>')
 		}
 	}
 
