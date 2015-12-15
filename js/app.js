@@ -86,14 +86,19 @@ $(document).ready(function() {
 			|| parseInt($snake.css('left')) > parseInt($board.css('width'))
 		) {
 			console.log('you dead');
+			gameActive = false;
 		}
 	}
-
+	var gameActive = true;
 	var updateGame = function() {
-		updateSnake();
-		moveSnake();
-		ifPelletEaten();
-		checkWithinBoard();
+		if (gameActive){
+			updateSnake();
+			moveSnake();
+			ifPelletEaten();
+			checkWithinBoard();
+		}	else {
+			$board.append('<div>GAME OVER</div>')
+		}
 	}
 
 	generatePellet();

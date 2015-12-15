@@ -5,6 +5,7 @@
 	position: absolute;
 	top: 20px;
 	left: 20px;
+	border-radius: 25%;
 }
 
 #board {
@@ -28,4 +29,5 @@
 	height: 20px;
 	background: gray;
 	position: absolute;
+	border-radius: 50%;
 }
