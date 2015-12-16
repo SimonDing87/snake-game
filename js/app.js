@@ -110,7 +110,7 @@ $(document).ready(function() {
 			generatePellet();
 			// increase game speed
 			clearInterval(start);
-			start = setInterval(updateGame, gameSpeed - tailCount*20);
+			start = setInterval(updateGame, gameSpeed * Math.pow(.90, 1+tailCount));
 		}
 	}
 
