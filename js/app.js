@@ -3,13 +3,13 @@ $(document).ready(function() {
 	var $snake = $('#snake');
 	var $board = $('#board');
 	var $pellet = $('.pellet');	
-	var gameSpeed = 100;
+	var gameSpeed = 300;
 	var snakeSize = parseInt($snake.css('width'));
 	var direction = 39;
 	var score = 0;
 	var gameActive = true;
 	var tailCount = 0;
-
+	var start;
 	$(document).keydown(function(e){
 		if (e.keyCode === 82) {
 			clearInterval(start);
@@ -27,7 +27,7 @@ $(document).ready(function() {
 		$snake.css('top', snakeSize);
 		$snake.css('left', snakeSize);
 		$('#gameover').css('opacity', 0);
-		start = setInterval(updateGame, gameSpeed);
+		start = setInterval(updateGame, gameSpeed - tailCount*20);
 	}
 	var moveSnake = function() {
 		//only allow perpendicular directions, need to fix bug if u spam keys u can still turn into your tail
@@ -105,6 +105,8 @@ $(document).ready(function() {
 			addTail();
 			$('.pellet').remove();
 			generatePellet();
+			clearInterval(start);
+			start = setInterval(updateGame, gameSpeed - tailCount*20);
 		}
 	}
 
