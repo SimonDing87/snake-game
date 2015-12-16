@@ -6,40 +6,40 @@ body 	{
 	width: 100%;
 	height: 100%;
 	opacity: 0;
-	background: red;
+	background: maroon;
 	text-align: center;
 	vertical-align: middle;
 }
 
 #snake {
-	width: 20px;
-	height: 20px;
+	width: 50px;
+	height: 50px;
 	background: black;
 	position: absolute;
-	top: 20px;
-	left: 20px;
+	top: 50px;
+	left: 50px;
 	border-radius: 25%;
 }
 
 #board {
-	width: 200px;
-	height: 200px;
+	width: 500px;
+	height: 500px;
 	background: green;
 	position: absolute;
 
 }
 
 .pellet {
-	width: 20px;
-	height: 20px;
+	width: 50px;
+	height: 50px;
 	background: red;
 	position: absolute;
 	border-radius: 100%;
 }
 
 .tail {
-	width: 20px;
-	height: 20px;
+	width: 50px;
+	height: 50px;
 	background: gray;
 	position: absolute;
 	border-radius: 50%;

@@ -10,6 +10,8 @@ $(document).ready(function() {
 	var gameActive = true;
 	var tailCount = 0;
 	var start;
+
+	//press R to restart
 	$(document).keydown(function(e){
 		if (e.keyCode === 82) {
 			clearInterval(start);
@@ -106,6 +108,7 @@ $(document).ready(function() {
 			addTail();
 			$('.pellet').remove();
 			generatePellet();
+			// increase game speed
 			clearInterval(start);
 			start = setInterval(updateGame, gameSpeed - tailCount*20);
 		}
