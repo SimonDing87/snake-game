@@ -12,6 +12,7 @@ $(document).ready(function() {
 
 	$(document).keydown(function(e){
 		if (e.keyCode === 82) {
+			clearInterval(start);
 			initGame();
 		}
 	})
@@ -139,6 +140,5 @@ $(document).ready(function() {
 	}
 
 	initGame();
-	// var start = setInterval(updateGame, gameSpeed);
 });
 
