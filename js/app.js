@@ -19,6 +19,7 @@ $(document).ready(function() {
 
 	var initGame = function() {
 		$('.tail').remove();
+		$('#score').text('Score: 0');
 		generatePellet();
 		direction = 39;
 		score = 0;
@@ -101,7 +102,7 @@ $(document).ready(function() {
 	}
 	var ifPelletEaten = function() {
 		if (checkCollision($snake, $('.pellet'))) {
-			score++;
+			$('#score').text('Score: ' + ++score*10);
 			addTail();
 			$('.pellet').remove();
 			generatePellet();
